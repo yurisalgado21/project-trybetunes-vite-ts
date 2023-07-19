@@ -66,6 +66,7 @@ export default function Search() {
                 data-testid={ `link-to-album-${album.collectionId}` }
                 to={ `/album/${album.collectionId}` }
               >
+                <img src={ album.artworkUrl100 } alt="" />
                 {album.collectionName}
               </Link>
             ))}
