@@ -27,6 +27,7 @@ export default function Album() {
       {loading && <LoadingMessage />}
       {!loading && albumInfo !== null && (
         <>
+          <img src={ albumInfo.artworkUrl100 } alt="" />
           <p data-testid="artist-name">{albumInfo.artistName}</p>
           <p data-testid="album-name">{albumInfo.collectionName}</p>
           <ul>
