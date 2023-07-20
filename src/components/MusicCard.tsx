@@ -4,7 +4,6 @@ import { SongType } from '../types';
 import imageCheckedHeart from '../images/checked_heart.png';
 import emptyImage from '../images/empty_heart.png';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
-import Favorites from './Favorites';
 
 export default function MusicCard({ trackId, trackName, previewUrl }: SongType) {
   const { id } = useParams();
