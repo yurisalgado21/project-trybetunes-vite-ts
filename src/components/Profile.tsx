@@ -28,7 +28,6 @@ export default function Profile() {
             <div>
               <img data-testid="profile-image" src={ myUser?.image } alt="" />
             </div>
-            <Link to="/profile/edit">Editar perfil</Link>
             <p>
               {myUser?.name}
             </p>
@@ -39,6 +38,7 @@ export default function Profile() {
               {myUser?.description}
             </p>
           </li>
+          <Link to="/profile/edit">Editar perfil</Link>
         </ul>
       )}
     </div>
