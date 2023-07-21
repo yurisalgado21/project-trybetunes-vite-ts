@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import { UserType } from '../types';
 import LoadingMessage from './LoadingMessage';
 
 export default function Header() {

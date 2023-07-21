@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { SongType } from '../types';
 import imageCheckedHeart from '../images/checked_heart.png';
 import emptyImage from '../images/empty_heart.png';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 export default function MusicCard({ trackId, trackName, previewUrl }: SongType) {
-  const { id } = useParams();
   const [checked, setChecked] = useState(false);
   const [favoriteMusic, setFavoriteMusic] = useState(false);
   const [listMyFavoritesMusics, setListMyFavoritesMusics] = useState<SongType[]>();
   const [loading, setLoading] = useState(false);
+
+  console.log(listMyFavoritesMusics);
+  console.log(loading);
 
   async function isFavoriteMusic(prop: boolean) {
     setFavoriteMusic(prop);
@@ -46,7 +47,7 @@ export default function MusicCard({ trackId, trackName, previewUrl }: SongType) 
       setLoading(false);
     };
     fetchGetFavoriteSongs();
-  }, []);
+  }, [trackId]);
 
   return (
     <div>

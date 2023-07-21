@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUser, updateUser } from '../services/userAPI';
 import { UserType } from '../types';
-import LoadingMessage from './LoadingMessage';
 
 export default function ProfileEdit() {
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ export default function ProfileEdit() {
     description: '',
   });
   const [isDisable, setIsDisable] = useState(false);
-
+  console.log(loading);
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }

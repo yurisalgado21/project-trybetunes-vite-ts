@@ -7,7 +7,6 @@ import LoadingMessage from './LoadingMessage';
 export default function Favorites() {
   const [loading, setLoading] = useState(false);
   const [myMusics, setMyMusics] = useState<SongType[]>();
-  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const getMyMusics = async () => {
