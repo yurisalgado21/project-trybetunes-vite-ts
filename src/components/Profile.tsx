@@ -28,9 +28,7 @@ export default function Profile() {
             <div>
               <img data-testid="profile-image" src={ myUser?.image } alt="" />
             </div>
-            <div>
-              <Link to="/profile/edit">Editar perfil</Link>
-            </div>
+            <Link to="/profile/edit">Editar perfil</Link>
             <p>
               {myUser?.name}
             </p>
