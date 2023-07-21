@@ -7,6 +7,7 @@ import NotFound from './components/NotFound';
 import Favorites from './components/Favorites';
 import Profile from './components/Profile';
 import ProfileEdit from './components/ProfileEdit';
+import './App.css';
 
 function App() {
   return (

@@ -70,6 +70,7 @@ SongType & { myFavoritesSongs: () => void }) {
           type="checkbox"
           onChange={ handleChecked }
           checked={ checked }
+          style={ { appearance: 'none' } }
         />
       </label>
     </div>

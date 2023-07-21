@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import LoadingMessage from './LoadingMessage';
+import imageLogoTrybeTunes from '../../images/logo.svg';
+import imageSearch from '../../images/Vector.svg';
+import imageStar from '../../images/🦆 icon _star empty_.svg';
+import imageProfile from '../../images/🦆 icon _profile_.svg';
 
 export default function Header() {
   const [nameUser, setNameUser] = useState('');
@@ -18,17 +22,35 @@ export default function Header() {
   }, []);
 
   return (
-    <header data-testid="header-component">
+    <header id="header-id" data-testid="header-component">
       {loading && <LoadingMessage />}
-      <span data-testid="header-user-name">{nameUser}</span>
+      <img src={ imageLogoTrybeTunes } alt="" />
+      <span data-testid="header-user-name" id="nameUser-id">{nameUser}</span>
       <nav>
-        <NavLink to="/search" data-testid="link-to-search">Search</NavLink>
+        <img src={ imageSearch } alt="" />
+        <NavLink to="/search" data-testid="link-to-search" id="search-id">Search</NavLink>
       </nav>
       <nav>
-        <NavLink to="/favorites" data-testid="link-to-favorites">Favorites</NavLink>
+        <img src={ imageStar } alt="" />
+        <NavLink
+          to="/favorites"
+          data-testid="link-to-favorites"
+          id="favorites-id"
+        >
+          Favorites
+
+        </NavLink>
       </nav>
       <nav>
-        <NavLink to="/profile" data-testid="link-to-profile">Profile</NavLink>
+        <img src={ imageProfile } alt="" />
+        <NavLink
+          to="/profile"
+          data-testid="link-to-profile"
+          id="profile-id"
+        >
+          Profile
+
+        </NavLink>
       </nav>
     </header>
   );

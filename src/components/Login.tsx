@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoadingMessage from './LoadingMessage';
 import { createUser } from '../services/userAPI';
+import imageLogoTrybeTunes from '../../images/logo.svg';
 
 export default function Login() {
   const [name, setName] = useState('');
@@ -29,9 +30,12 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div id="input-button-Login">
+      <div>
+        <img src={ imageLogoTrybeTunes } alt="" />
+      </div>
       <form onSubmit={ handleSubmit }>
-        <label htmlFor="name">Nome:</label>
+        <label htmlFor="name">Login:</label>
         <input
           id="name"
           data-testid="login-name-input"
@@ -39,8 +43,10 @@ export default function Login() {
           name="name"
           value={ name }
           onChange={ handleNameChange }
+          placeholder="Qual é o Seu Nome?"
         />
         <button
+          id="button-Login"
           data-testid="login-submit-button"
           disabled={ name.length < 3 }
           type="submit"
