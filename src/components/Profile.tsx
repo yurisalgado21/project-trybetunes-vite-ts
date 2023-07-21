@@ -21,26 +21,17 @@ export default function Profile() {
   return (
     <div>
       Profile
-      {loading && <LoadingMessage />}
-      {!loading && (
-        <ul>
-          <li key={ myUser?.name }>
-            <div>
-              <img data-testid="profile-image" src={ myUser?.image } alt="" />
-            </div>
-            <p>
-              {myUser?.name}
-            </p>
-            <p>
-              {myUser?.email}
-            </p>
-            <p>
-              {myUser?.description}
-            </p>
-          </li>
-          <Link to="/profile/edit">Editar perfil</Link>
-        </ul>
-      )}
+      <div>
+        <h4>{myUser?.name}</h4>
+        <p>{myUser?.email}</p>
+        <p>{myUser?.description}</p>
+        <img
+          src={ myUser?.image }
+          alt=""
+          data-testid="profile-image"
+        />
+        <Link to="/profile/edit">Editar perfil</Link>
+      </div>
     </div>
   );
 }
