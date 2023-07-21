@@ -11,6 +11,10 @@ export default function Album() {
   const [musics, setMusics] = useState<SongType[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const myFavoritesSongs = () => {
+    setLoading(false);
+  };
+
   useEffect(() => {
     const fetchAlbum = async () => {
       setLoading(true);
@@ -37,6 +41,7 @@ export default function Album() {
                   trackId={ music.trackId }
                   trackName={ music.trackName }
                   previewUrl={ music.previewUrl }
+                  myFavoritesSongs={ () => myFavoritesSongs() }
                 />
               </li>
             ))}

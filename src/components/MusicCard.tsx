@@ -4,7 +4,9 @@ import imageCheckedHeart from '../images/checked_heart.png';
 import emptyImage from '../images/empty_heart.png';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
-export default function MusicCard({ trackId, trackName, previewUrl }: SongType) {
+export default function MusicCard(track:
+SongType & { myFavoritesSongs: () => void }) {
+  const { trackName, previewUrl, trackId, myFavoritesSongs } = track;
   const [checked, setChecked] = useState(false);
   const [favoriteMusic, setFavoriteMusic] = useState(false);
   const [listMyFavoritesMusics, setListMyFavoritesMusics] = useState<SongType[]>();
@@ -31,9 +33,11 @@ export default function MusicCard({ trackId, trackName, previewUrl }: SongType) 
     if (!checked) {
       setChecked(true);
       isFavoriteMusic(true);
+      myFavoritesSongs();
     } else {
       setChecked(false);
       notFavoriteMusic(false);
+      myFavoritesSongs();
     }
   }
 

@@ -6,7 +6,7 @@ import LoadingMessage from './LoadingMessage';
 
 export default function Favorites() {
   const [loading, setLoading] = useState(false);
-  const [myMusics, setMyMusics] = useState<SongType[]>();
+  const [myMusics, setMyMusics] = useState<SongType[]>([]);
 
   useEffect(() => {
     const getMyMusics = async () => {
@@ -17,6 +17,11 @@ export default function Favorites() {
     };
     getMyMusics();
   }, []);
+
+  function myFavoritesSongs(trackId: number) {
+    setMyMusics((prevFavorite) => prevFavorite
+      .filter((song) => song.trackId !== trackId));
+  }
 
   return (
     <div>
@@ -30,6 +35,7 @@ export default function Favorites() {
                 trackId={ music.trackId }
                 trackName={ music.trackName }
                 previewUrl={ music.previewUrl }
+                myFavoritesSongs={ () => myFavoritesSongs(music.trackId) }
               />
             </li>
           ))}
