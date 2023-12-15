@@ -68,10 +68,10 @@ export default function ProfileEdit() {
   }, []);
 
   return (
-    <div>
+    <div className="div-form-edit">
       <form onSubmit={ handleSubmit }>
         <label htmlFor="name">
-          Nome
+          Name
           <input
             data-testid="edit-input-name"
             type="text"
@@ -90,6 +90,7 @@ export default function ProfileEdit() {
             type="email"
             id="email"
             name="email"
+            placeholder="user@test.com"
             defaultValue={ myDataUser.email }
             value={ myDataUser.email }
             onChange={ handleChange }
@@ -116,6 +117,7 @@ export default function ProfileEdit() {
             type="text"
             id="image"
             name="image"
+            placeholder="url-image"
             defaultValue={ myDataUser.image }
             value={ myDataUser.image }
             onChange={ handleChange }
@@ -123,6 +125,7 @@ export default function ProfileEdit() {
           />
         </label>
         <button
+          id="button-id-profile"
           type="submit"
           data-testid="edit-button-save"
           disabled={ isDisable }

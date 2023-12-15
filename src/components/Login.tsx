@@ -53,8 +53,8 @@ export default function Login() {
         >
           Entrar
         </button>
+        {loading && <LoadingMessage />}
       </form>
-      {loading && <LoadingMessage />}
     </div>
   );
 }

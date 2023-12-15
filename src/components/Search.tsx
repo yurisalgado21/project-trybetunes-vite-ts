@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import LoadingMessage from './LoadingMessage';
 import { AlbumType } from '../types';
+import imageNotFound from '../../images/🦆 icon _circle error_.svg';
 
 export default function Search() {
   const [nameArtist, setNameArtist] = useState('');
@@ -31,9 +32,9 @@ export default function Search() {
   }, []);
 
   return (
-    <div>
-      <label htmlFor="artist">Digite o nome da banda ou artista:</label>
-      <form>
+    <div id="id-search-form">
+      <label id="id-label" htmlFor="artist">Digite o nome da banda ou artista:</label>
+      <form id="form-search">
         <input
           type="text"
           id="artist"
@@ -44,6 +45,7 @@ export default function Search() {
         />
         <button
           type="button"
+          id="button-search"
           data-testid="search-artist-button"
           disabled={ nameArtist.length < 2 }
           onClick={ handleSearch }
@@ -54,27 +56,34 @@ export default function Search() {
       {loading && <LoadingMessage />}
       {!loading && albums.length > 0 && (
         <>
-          <p>
+          <p id="nome-id-resultado">
             Resultado de álbuns de:
             {' '}
             {inputName}
           </p>
-          <ul>
+          <ul id="albums-container">
             {albums.map((album) => (
-              <Link
-                key={ album.collectionId }
-                data-testid={ `link-to-album-${album.collectionId}` }
-                to={ `/album/${album.collectionId}` }
-              >
-                <img src={ album.artworkUrl100 } alt="" />
-                {album.collectionName}
-              </Link>
+              <li id="album" key={ album.collectionId }>
+                <Link
+                  id="album-capa"
+                  data-testid={ `link-to-album-${album.collectionId}` }
+                  to={ `/album/${album.collectionId}` }
+                >
+                  <img id="image-album" src={ album.artworkUrl100 } alt="" />
+                  <p id="name-album">{album.collectionName}</p>
+                </Link>
+              </li>
             ))}
           </ul>
         </>
       )}
       {!loading && albums.length === 0 && inputName.length >= 2 && (
-        <p>Nenhum álbum foi encontrado</p>
+        <p id="id-not-search">
+          <div>
+            <img src={ imageNotFound } alt="" />
+          </div>
+          Nenhum álbum foi encontrado
+        </p>
       )}
     </div>
   );

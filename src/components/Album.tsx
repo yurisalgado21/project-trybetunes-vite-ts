@@ -30,11 +30,17 @@ export default function Album() {
     <div>
       {loading && <LoadingMessage />}
       {!loading && albumInfo !== null && (
-        <>
-          <img src={ albumInfo.artworkUrl100 } alt="" />
-          <p data-testid="artist-name">{albumInfo.artistName}</p>
-          <p data-testid="album-name">{albumInfo.collectionName}</p>
-          <ul>
+        <div className="album-specifif">
+          <img id="album-specific-foto" src={ albumInfo.artworkUrl100 } alt="" />
+          <p id="artist-name-id" data-testid="artist-name">{albumInfo.artistName}</p>
+          <p
+            id="artist-nameCollection"
+            data-testid="album-name"
+          >
+            {albumInfo.collectionName}
+
+          </p>
+          <ul className="music-container">
             {musics.map((music) => (
               <li key={ music.trackId }>
                 <MusicCard
@@ -46,7 +52,7 @@ export default function Album() {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
     </div>
   );

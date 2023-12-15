@@ -19,18 +19,21 @@ export default function Profile() {
   });
 
   return (
-    <div>
-      Profile
+    <div className="div-profile">
+      Profile User:
       <div>
         <h4>{myUser?.name}</h4>
         <p>{myUser?.email}</p>
         <p>{myUser?.description}</p>
-        <img
-          src={ myUser?.image }
-          alt=""
-          data-testid="profile-image"
-        />
-        <Link to="/profile/edit">Editar perfil</Link>
+        <div>
+          <img
+            id="my-image-profile"
+            src={ myUser?.image }
+            alt=""
+            data-testid="profile-image"
+          />
+        </div>
+        <Link to="/profile/edit" id="editar-perfil-id">Editar perfil</Link>
       </div>
     </div>
   );

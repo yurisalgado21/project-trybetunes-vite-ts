@@ -24,13 +24,14 @@ export default function Favorites() {
   }
 
   return (
-    <div>
-      Favorites
+    <div className="div-favorites">
+      <p id="musicas-fav">*Músicas Favoritas*</p>
       {loading && <LoadingMessage />}
       {!loading && myMusics !== null && (
-        <ul>
+        <ul className="ul-favorites">
           {myMusics?.map((music) => (
             <li key={ music.trackId }>
+              <img src={ music.previewUrl } alt="" />
               <MusicCard
                 trackId={ music.trackId }
                 trackName={ music.trackName }

@@ -54,25 +54,29 @@ SongType & { myFavoritesSongs: () => void }) {
   }, [trackId]);
 
   return (
-    <div>
-      <p>{trackName}</p>
-      <audio data-testid="audio-component" src={ previewUrl } controls>
-        <track kind="captions" />
-        O seu navegador não suporta o elemento
-        {' '}
-        <code>audio</code>
-        .
-      </audio>
-      <label data-testid={ `checkbox-music-${trackId}` }>
-        {checked ? <img src={ imageCheckedHeart } alt="favorite" />
-          : <img src={ emptyImage } alt="favorite" />}
-        <input
-          type="checkbox"
-          onChange={ handleChecked }
-          checked={ checked }
-          style={ { appearance: 'none' } }
-        />
-      </label>
+    <div className="track-class">
+      <div className="container-music-favorite">
+        <p id="track-name">{trackName}</p>
+        <audio id="audio-music" data-testid="audio-component" src={ previewUrl } controls>
+          <track kind="captions" />
+          O seu navegador não suporta o elemento
+          {' '}
+          <code>audio</code>
+          .
+        </audio>
+        <label id="checkbox-heart" data-testid={ `checkbox-music-${trackId}` }>
+          {checked ? <img src={ imageCheckedHeart } alt="favorite" />
+            : <img src={ emptyImage } alt="favorite" />}
+          <input
+            id="checkbox-heart"
+            type="checkbox"
+            onChange={ handleChecked }
+            checked={ checked }
+            style={ { appearance: 'none' } }
+          />
+
+        </label>
+      </div>
     </div>
   );
 }
